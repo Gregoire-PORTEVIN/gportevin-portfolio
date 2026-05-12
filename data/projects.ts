@@ -151,7 +151,7 @@ export const projects: Project[] = [
     stack: ['C++', 'DirectX 12', 'HLSL'],
     cover: '/projects/moteur-cover.jpg',
     description:
-      "Projet d'envergure consistant à développer un moteur de rendu 3D à partir de zéro, en utilisant DirectX 12, puis à l'exploiter pour créer un jeu jouable. L'objectif : comprendre en profondeur le pipeline graphique, la gestion mémoire GPU, et l'architecture d'un moteur de jeu moderne.",
+      "Projet d'envergure consistant à développer un moteur de rendu 3D à partir de zéro en 3 semaines, en utilisant DirectX 12, puis à l'exploiter pour créer un jeu jouable. L'objectif : comprendre en profondeur le pipeline graphique, la gestion mémoire GPU, et l'architecture d'un moteur de jeu moderne.",
     highlights: [
       'Chargement et affichage de modèles 3D',
       'Gestion des lumières et ombres dynamiques',
@@ -165,6 +165,10 @@ export const projects: Project[] = [
       'Optimisation des performances avec DirectX 12',
       'Travail en équipe et gestion de projet technique complexe',
     ],
+    video: {
+      kind: 'youtube',
+      id: 'UDLwqShKZOQ'
+    },
     github: 'https://github.com/Gregoire-PORTEVIN/Moteur-Jeu',
   },
   {
