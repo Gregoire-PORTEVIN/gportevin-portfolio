@@ -77,7 +77,7 @@ export default function ProjectDetailPage({
                 className="inline-flex items-center gap-2 bg-accent px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-accent-soft"
               >
                 <Play size={16} />
-                Vidéo
+                {project.demoLabel || 'Demo'}
               </a>
             )}
           </div>

@@ -54,6 +54,7 @@ export type Project = {
   video?: ProjectVideo;      // 🎬 Vidéo intégrée (YouTube, Vimeo ou fichier local)
   gallery?: ProjectImage[];  // 🖼️ Galerie d'images (carousel avec navigation)
   featured?: boolean;        // True = mis en avant sur la home
+  demoLabel?: string;
 };
 
 export const projects: Project[] = [
@@ -82,17 +83,6 @@ export const projects: Project[] = [
       "Bridge entre code C++ scientifique et environnement temps réel",
       "Pipeline de modélisation Python ↔ Blender ↔ Unreal",
     ],
-    // 🎬 EXEMPLE — Décommente quand tu auras une vidéo YouTube de ton projet
-    // video: {
-    //   kind: 'youtube',
-    //   id: 'TON_ID_YOUTUBE_ICI', // ex: 'dQw4w9WgXcQ'
-    // },
-    // 🖼️ EXEMPLE — Décommente quand tu auras des screenshots dans /public/projects/
-    // gallery: [
-    //   { src: '/projects/inrae-1.jpg', caption: 'Vue du plugin dans Unreal Engine' },
-    //   { src: '/projects/inrae-2.jpg', caption: 'Simulation de couche cellulaire' },
-    //   { src: '/projects/inrae-3.jpg', caption: 'Architecture du plugin' },
-    // ],
     featured: true,
   },
 
@@ -108,13 +98,22 @@ export const projects: Project[] = [
     context: 'Stage au Gaming Campus — Lyon',
     team: 'Collaboration inter-pôles (QA, Moteur)',
     stack: ['Unity3D', 'C#', 'C++', 'Moteur custom'],
-    cover: '/projects/gaming-campus-cover.jpg',
+    cover: '/projects/Stage-Moteur/cover-StageGC.jpg',
     description:
       "Stage axé sur le prototypage de mécaniques de jeu sous Unity3D, puis sur leur portage vers un moteur de jeu propriétaire développé en C++. Une expérience qui m'a permis de toucher aux deux extrémités du pipeline : design rapide en moteur du marché, puis intégration optimisée dans un moteur custom.",
     highlights: [
       'Prototypage et développement de mécaniques de jeu sous Unity3D',
       'Collaboration avec les pôles QA et Moteur pour aligner les besoins',
       'Portage et intégration de prototypes Unity vers le moteur maison en C++',
+    ],
+    video: {
+      kind: 'youtube',
+      id: 'ECAOnPpxfoU'
+    },
+    gallery: [
+      { src: '/projects/Stage-Moteur/Stage-Moteur1.jpg', caption:'Jeu de billard sur le moteur custom du Gaming Campus'},
+      { src: '/projects/Stage-Moteur/Stage-Moteur2.jpg', caption:'Prototype de type platformer sur Unity, inspiration de Celeste et Hollow Knight'},
+      { src: '/projects/Stage-Moteur/Stage-Moteur3.jpg', caption:'Prototype de jeu de combat sur UNity, inspiration Smash Bros'},
     ],
   },
   {
@@ -126,7 +125,9 @@ export const projects: Project[] = [
     context: 'Stage chez Pignat / 3DVerse — Lyon',
     team: 'Équipe technique',
     stack: ['Next.js', 'React', 'Redux', 'TailwindCSS'],
-    cover: '/projects/pignat-cover.jpg',
+    cover: '/projects/Stage-Pignat-3DVerse/cover-Pignat-3DVerse.jpg',
+    demo: 'https://www.linkedin.com/posts/tbt-3dverse-edtech-ugcPost-7340835512741486592-URcf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD56ax4ByPA4otaTHt1J48w3JFY9-Tv6OmM',
+    demoLabel: 'Voir la vidéo sur Linkedin',
     description:
       "Développement d'une application web permettant l'utilisation à distance de machines de travaux pratiques pour des étudiants en formation. L'interface combine simulation et contrôle réel, avec une architecture front-end pensée pour la fiabilité et la responsivité.",
     highlights: [
@@ -134,6 +135,11 @@ export const projects: Project[] = [
       "Conception d'une interface unifiée simulation + contrôle à distance",
       'Architecture front-end optimisée et responsive',
       'Collaboration avec les équipes techniques pour intégrer les besoins métier',
+    ],
+    gallery: [
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse1.jpg'},
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse2.jpg'},
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse3.jpg'},
     ],
   },
 
@@ -149,7 +155,7 @@ export const projects: Project[] = [
     context: 'Bachelor 2 — Gaming Campus',
     team: 'Équipe de 4',
     stack: ['C++', 'DirectX 12', 'HLSL'],
-    cover: '/projects/moteur-cover.jpg',
+    cover: '/projects/Project-Moteur-C++-DirectX12/moteur-cover.jpg',
     description:
       "Projet d'envergure consistant à développer un moteur de rendu 3D à partir de zéro en 3 semaines, en utilisant DirectX 12, puis à l'exploiter pour créer un jeu jouable. L'objectif : comprendre en profondeur le pipeline graphique, la gestion mémoire GPU, et l'architecture d'un moteur de jeu moderne.",
     highlights: [
@@ -169,6 +175,11 @@ export const projects: Project[] = [
       kind: 'youtube',
       id: 'UDLwqShKZOQ'
     },
+    gallery: [
+      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX1.jpg' },
+      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX2.jpg' },
+      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX3.jpg' },
+    ],
     github: 'https://github.com/Gregoire-PORTEVIN/Moteur-Jeu',
   },
   {
@@ -208,7 +219,7 @@ export const projects: Project[] = [
     context: 'Bachelor 2 — Gaming Campus',
     team: 'Équipe de 3',
     stack: ['Unity', 'C#'],
-    cover: '/projects/gojo-cover.jpg',
+    cover: '/projects/Project-GoJo/cover-GoJo.jpg',
     description:
       "GO/JO est un jeu de plateforme 2D mettant en scène un petit slime capable de se séparer en deux entités contrôlables. Cette mécanique de base ouvre la voie à des énigmes coopératives où il faut faire collaborer les deux moitiés du personnage pour franchir les obstacles.",
     highlights: [
@@ -222,6 +233,15 @@ export const projects: Project[] = [
       'Conception de mécaniques de jeu originales',
       "Gestion d'un projet de jeu vidéo en équipe",
     ],
+    video: {
+      kind: 'youtube',
+      id: 'WKazB9Nb8Mg'
+    },
+    gallery: [
+      { src: '/projects/Project-GoJo/Project-GoJo1.jpg'},
+      { src: '/projects/Project-GoJo/Project-GoJo2.jpg'},
+      { src: '/projects/Project-GoJo/Project-GoJo3.jpg'},
+    ],
     github: 'https://github.com/Maquereauu/Go-jo',
   },
   {
@@ -233,7 +253,7 @@ export const projects: Project[] = [
     context: 'Bachelor 3 — Gaming Campus',
     team: 'Équipe de 3',
     stack: ['Unity', 'Shader Graph', 'HLSL'],
-    cover: '/projects/shaders-cover.jpg',
+    cover: '/projects/Project-VFX/cover-VFX.jpg',
     description:
       "Plutôt qu'un jeu classique, ce projet visait à explorer au maximum les capacités graphiques d'Unity. Nous avons conçu une expérience visuelle mettant en scène un personnage 3D évoluant dans un monde rempli d'effets graphiques travaillés, avec un parti pris artistique fort.",
     highlights: [
@@ -248,6 +268,15 @@ export const projects: Project[] = [
       'Gestion des VFX et des particules sous Unity',
       'Travail en équipe sur une approche artistique du développement',
     ],
+    video: {
+      kind: 'youtube',
+      id: 'eXCWwen9TPc'
+    },
+    gallery: [
+      { src: '/projects/Project-VFX/Project-VFX1.jpg'},
+      { src: '/projects/Project-VFX/Project-VFX2.jpg'},
+      { src: '/projects/Project-VFX/Project-VFX3.jpg'},
+    ],
   },
   {
     slug: 'puzzle-game-unreal',
@@ -258,7 +287,7 @@ export const projects: Project[] = [
     context: 'Bachelor 3 — Gaming Campus',
     team: 'Équipe de 2',
     stack: ['Unreal Engine 5', 'Blueprint'],
-    cover: '/projects/puzzle-cover.jpg',
+    cover: '/projects/Project-Puzzle/cover-Puzzle.jpg',
     description:
       "Premier vrai contact avec Unreal Engine 5, en collaboration avec un coéquipier. Un puzzle game où le joueur doit résoudre trois énigmes pour actionner des portes et progresser à travers un niveau pensé pour le guider naturellement.",
     highlights: [
@@ -271,6 +300,15 @@ export const projects: Project[] = [
       'Prise en main des Blueprints et logique événementielle',
       "Création de mécaniques de puzzle interactives",
       "Structuration d'un projet sous Unreal Engine 5",
+    ],
+    video: {
+      kind: 'youtube',
+      id: 'Iwbc_teqtP0'
+    },
+    gallery: [
+      { src: '/projects/Project-Puzzle/Project-Puzzle1.jpg'},
+      { src: '/projects/Project-Puzzle/Project-Puzzle2.jpg'},
+      { src: '/projects/Project-Puzzle/Project-Puzzle3.jpg'},
     ],
   },
 ];
