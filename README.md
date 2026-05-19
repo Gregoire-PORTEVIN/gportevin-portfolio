@@ -19,7 +19,6 @@ node --version
 ### 2. Installation
 
 ```bash
-# Installer les dépendances (la première fois, ça prend ~1 min)
 npm install
 ```
 
