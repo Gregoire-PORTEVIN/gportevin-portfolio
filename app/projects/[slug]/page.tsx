@@ -90,7 +90,7 @@ export default function ProjectDetailPage({
           ) : (
             <div className="aspect-[16/9] overflow-hidden border border-line bg-surface">
               <div
-                className="scan-line h-full w-full grid-background"
+                className="h-full w-full grid-background"
                 style={{
                   backgroundImage: project.cover
                     ? `url(${project.cover})`

@@ -1,7 +1,6 @@
 // ============================================================
-// 👤 PROFIL
+// PROFIL
 // ============================================================
-// Tes infos persos centralisées. Modifie ici, pas ailleurs.
 // ============================================================
 
 export const profile = {
@@ -65,8 +64,5 @@ export const profile = {
   socials: {
     linkedin: 'https://www.linkedin.com/in/grégoire-portevin-166063253/',
     github: 'https://github.com/Gregoire-PORTEVIN',
-    // À ajouter quand tu auras d'autres profils :
-    // itch: '',
-    // artstation: '',
   },
 };

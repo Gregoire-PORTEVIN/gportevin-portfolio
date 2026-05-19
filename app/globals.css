@@ -163,7 +163,6 @@ body {
   100% { transform: translateX(100%); }
 }
 .scan-line {
-  position: relative;
   overflow: hidden;
 }
 .scan-line::after {
@@ -177,4 +176,5 @@ body {
     transparent
   );
   animation: scan-line 3s linear infinite;
+  pointer-events: none;
 }

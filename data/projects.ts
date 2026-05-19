@@ -1,11 +1,3 @@
-// ============================================================
-// 📦 DONNÉES DES PROJETS
-// ============================================================
-// C'est ICI que tu modifies tes projets.
-// Pour ajouter un projet : copie un bloc existant et adapte-le.
-// Pour le mettre en avant sur la home : passe "featured: true".
-// ============================================================
-
 export type ProjectCategory =
   | 'stage'
   | 'moteur'
@@ -13,23 +5,12 @@ export type ProjectCategory =
   | 'shaders'
   | 'web';
 
-/**
- * Type pour une vidéo :
- * - YouTube/Vimeo : kind: 'youtube' + l'ID de la vidéo (la partie après v=)
- *   Ex: pour https://www.youtube.com/watch?v=dQw4w9WgXcQ, l'id est "dQw4w9WgXcQ"
- * - Fichier local : kind: 'file' + chemin dans /public/projects/
- *   Ex: '/projects/ma-video.mp4'
- */
 export type ProjectVideo =
   | { kind: 'youtube'; id: string; thumbnail?: string }
   | { kind: 'vimeo'; id: string; thumbnail?: string }
   | { kind: 'file'; src: string; poster?: string };
 
-/**
- * Type pour une image de galerie.
- * - src : chemin de l'image (dans /public/projects/)
- * - caption : légende optionnelle affichée en bas
- */
+
 export type ProjectImage = {
   src: string;
   caption?: string;
@@ -37,29 +18,29 @@ export type ProjectImage = {
 };
 
 export type Project = {
-  slug: string;              // URL du projet (ex: "moteur-directx12")
+  slug: string;
   title: string;
-  subtitle: string;          // 1 ligne d'accroche
-  year: string;              // Affichage : "2026", "2025", etc.
+  subtitle: string;
+  year: string;
   category: ProjectCategory;
-  context: string;           // Ex: "Stage INRAE", "Bachelor 3 — École", "Projet personnel"
-  team: string;              // Ex: "Solo", "Équipe de 4", "Avec Gaming Campus"
-  stack: string[];           // Tags affichés
-  cover: string;             // Image de couverture (mettre dans /public/projects/)
-  description: string;       // Paragraphe principal
-  highlights: string[];      // Points clés (3-5 max)
-  learnings?: string[];      // Ce que tu as appris (optionnel)
-  github?: string;           // Lien GitHub (optionnel)
-  demo?: string;             // Lien démo externe (optionnel, sera remplacé par video pour les nouveaux projets)
-  video?: ProjectVideo;      // 🎬 Vidéo intégrée (YouTube, Vimeo ou fichier local)
-  gallery?: ProjectImage[];  // 🖼️ Galerie d'images (carousel avec navigation)
-  featured?: boolean;        // True = mis en avant sur la home
+  context: string;
+  team: string;
+  stack: string[];
+  cover: string;
+  description: string;
+  highlights: string[];
+  learnings?: string[];
+  github?: string;
+  demo?: string;
+  video?: ProjectVideo;
+  gallery?: ProjectImage[];
+  featured?: boolean;
   demoLabel?: string;
 };
 
 export const projects: Project[] = [
   // ============================================================
-  // ⭐ FEATURED — Projet phare de la home
+  // FEATURED — Projet phare de la home
   // ============================================================
   {
     slug: 'plugin-unreal-inrae',
@@ -70,7 +51,7 @@ export const projects: Project[] = [
     context: 'Stage à l\'INRAE — Toulouse',
     team: 'Encadré par l\'équipe recherche INRAE',
     stack: ['C++', 'Unreal Engine 5', 'Python', 'Blender'],
-    cover: '/projects/inrae-cover.jpg',
+    cover: '/projects/Stage-Inrae/cover-Stage-Inrae.jpg',
     description:
       "Dans le cadre de mon stage à l'INRAE, je développe un plugin Unreal Engine permettant la portabilité d'un moteur de simulation propriétaire développé en interne. L'objectif : permettre aux chercheurs de visualiser et d'interagir avec leurs simulations de couches cellulaires dans un environnement temps réel et immersif.",
     highlights: [
@@ -82,6 +63,15 @@ export const projects: Project[] = [
       'Architecture de plugin Unreal Engine et exposition de fonctionnalités natives au moteur',
       "Bridge entre code C++ scientifique et environnement temps réel",
       "Pipeline de modélisation Python ↔ Blender ↔ Unreal",
+    ],
+    video: {
+      kind: 'youtube',
+      id: 'rMRIMuNRrFQ'
+    },
+    gallery: [
+      { src: '/projects/Stage-Inrae/Stage-Inrae1.jpg', caption: 'Rendu visuel d\'une couche cellulaire modélisée sous Blender' },
+      { src: '/projects/Stage-Inrae/Stage-Inrae2.jpg', caption: 'Couche cellulaire en pleine attaque de champignons, rendue sous Unreal Engine' },
+      { src: '/projects/Stage-Inrae/Stage-Inrae3.jpg', caption: 'Interface du plugin Irritator intégré à Unreal Engine' },
     ],
     featured: true,
   },
@@ -111,9 +101,9 @@ export const projects: Project[] = [
       id: 'ECAOnPpxfoU'
     },
     gallery: [
-      { src: '/projects/Stage-Moteur/Stage-Moteur1.jpg', caption:'Jeu de billard sur le moteur custom du Gaming Campus'},
-      { src: '/projects/Stage-Moteur/Stage-Moteur2.jpg', caption:'Prototype de type platformer sur Unity, inspiration de Celeste et Hollow Knight'},
-      { src: '/projects/Stage-Moteur/Stage-Moteur3.jpg', caption:'Prototype de jeu de combat sur UNity, inspiration Smash Bros'},
+      { src: '/projects/Stage-Moteur/Stage-Moteur1.jpg', caption: 'Jeu de billard développé sur le moteur custom du Gaming Campus' },
+      { src: '/projects/Stage-Moteur/Stage-Moteur2.jpg', caption: 'Prototype platformer sur Unity, inspiration Celeste et Hollow Knight' },
+      { src: '/projects/Stage-Moteur/Stage-Moteur3.jpg', caption: 'Prototype de jeu de combat sur Unity, inspiration Super Smash Bros' },
     ],
   },
   {
@@ -137,9 +127,9 @@ export const projects: Project[] = [
       'Collaboration avec les équipes techniques pour intégrer les besoins métier',
     ],
     gallery: [
-      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse1.jpg'},
-      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse2.jpg'},
-      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse3.jpg'},
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse1.jpg', caption: 'Panneau interactif de commande des machines, intégré sous TailwindCSS' },
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse2.jpg', caption: 'Module d\'instructions guidant l\'étudiant au fil du TP' },
+      { src: '/projects/Stage-Pignat-3DVerse/Pignat-3DVerse3.jpg', caption: 'Rendu global de l\'interface combinant simulation 3D et contrôles' },
     ],
   },
 
@@ -176,9 +166,9 @@ export const projects: Project[] = [
       id: 'UDLwqShKZOQ'
     },
     gallery: [
-      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX1.jpg' },
-      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX2.jpg' },
-      { src : '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX3.jpg' },
+      { src: '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX1.jpg', caption: 'Schéma architéctural du projet' },
+      { src: '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX2.jpg', caption: 'Test du pipeline graphique : affichage de modèles 3D et ombres projetées' },
+      { src: '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX3.jpg', caption: 'Prototype de jeu construit avec le moteur custom' },
     ],
     github: 'https://github.com/Gregoire-PORTEVIN/Moteur-Jeu',
   },
@@ -191,7 +181,7 @@ export const projects: Project[] = [
     context: 'Master 1 — Gaming Campus',
     team: 'Solo & équipes selon les exercices',
     stack: ['Unreal Engine 5', 'C++', 'Blueprint', 'HLSL', 'Niagara'],
-    cover: '/projects/unreal-m1-cover.jpg',
+    cover: '/projects/M1/cover-Master-GC.jpg',
     description:
       "Au cours de mon Master 1, j'ai approfondi Unreal Engine 5 à travers une série de projets ciblés explorant chaque facette du moteur. Plutôt qu'un projet monolithique, cette série m'a permis de construire une compréhension globale du moteur, de la programmation gameplay au rendu.",
     highlights: [
@@ -204,6 +194,28 @@ export const projects: Project[] = [
       "Maîtrise transversale d'Unreal Engine 5",
       "Compréhension d'un moteur AAA dans ses différentes couches",
       'Approche par exercices ciblés pour consolider chaque compétence',
+    ],
+    video: {
+      kind: 'youtube',
+      id: 'iDt3Q1NO81U'
+    },
+    gallery: [
+      { src: '/projects/M1/Master-GC1.jpg', caption: 'Game Design, type Squid Game' },
+      { src: '/projects/M1/Master-GC2.jpg', caption: 'Blueprint Solid, type Puzzle' },
+      { src: '/projects/M1/Master-GC3.jpg', caption: 'Animation, expérimentation' },
+      { src: '/projects/M1/Master-GC4.jpg', caption: 'Game Feel, jeu de skate' },
+      { src: '/projects/M1/Master-GC5.jpg', caption: 'Level Design, type temple Zelda' },
+      { src: '/projects/M1/Master-GC6.jpg', caption: 'IA, Mise en place du NavMesh + Behaviour Tree' },
+      { src: '/projects/M1/Master-GC7.jpg', caption: 'Geometry Shaders, type Baldur\'s Gate' },
+      { src: '/projects/M1/Master-GC8.jpg', caption: 'VFX, Hit Impact' },
+      { src: '/projects/M1/Master-GC9.jpg', caption: 'VFX, Feu d\'artifice' },
+      { src: '/projects/M1/Master-GC10.jpg', caption: 'VFX, Comet' },
+      { src: '/projects/M1/Master-GC11.jpg', caption: 'Game Design' },
+      { src: '/projects/M1/Master-GC12.jpg', caption: 'Game Design' },
+      { src: '/projects/M1/Master-GC13.jpg', caption: 'Game Design' },
+      { src: '/projects/M1/Master-GC14.jpg', caption: 'Shaders' },
+      { src: '/projects/M1/Master-GC15.jpg', caption: 'Shaders' },
+      { src: '/projects/M1/Master-GC16.jpg', caption: 'Shaders' },
     ],
   },
 
@@ -238,9 +250,9 @@ export const projects: Project[] = [
       id: 'WKazB9Nb8Mg'
     },
     gallery: [
-      { src: '/projects/Project-GoJo/Project-GoJo1.jpg'},
-      { src: '/projects/Project-GoJo/Project-GoJo2.jpg'},
-      { src: '/projects/Project-GoJo/Project-GoJo3.jpg'},
+      { src: '/projects/Project-GoJo/Project-GoJo1.jpg', caption: 'Combat de slime' },
+      { src: '/projects/Project-GoJo/Project-GoJo2.jpg', caption: 'Niveau avec mécaniques de plateforme et obstacles dynamiques' },
+      { src: '/projects/Project-GoJo/Project-GoJo3.jpg', caption: 'Ambiance visuelle et direction artistique du jeu' },
     ],
     github: 'https://github.com/Maquereauu/Go-jo',
   },
@@ -273,9 +285,9 @@ export const projects: Project[] = [
       id: 'eXCWwen9TPc'
     },
     gallery: [
-      { src: '/projects/Project-VFX/Project-VFX1.jpg'},
-      { src: '/projects/Project-VFX/Project-VFX2.jpg'},
-      { src: '/projects/Project-VFX/Project-VFX3.jpg'},
+      { src: '/projects/Project-VFX/Project-VFX1.jpg', caption: 'Ambiance immersive Game Menu' },
+      { src: '/projects/Project-VFX/Project-VFX2.jpg', caption: 'Système de particules custom pour effets d\'impact et de magie' },
+      { src: '/projects/Project-VFX/Project-VFX3.jpg', caption: 'Travail sur les matériaux et le rendu artistique du personnage' },
     ],
   },
   {
@@ -306,9 +318,9 @@ export const projects: Project[] = [
       id: 'Iwbc_teqtP0'
     },
     gallery: [
-      { src: '/projects/Project-Puzzle/Project-Puzzle1.jpg'},
-      { src: '/projects/Project-Puzzle/Project-Puzzle2.jpg'},
-      { src: '/projects/Project-Puzzle/Project-Puzzle3.jpg'},
+      { src: '/projects/Project-Puzzle/Project-Puzzle1.jpg', caption: 'Énigme à résoudre pour activer le mécanisme d\'ouverture' },
+      { src: '/projects/Project-Puzzle/Project-Puzzle2.jpg', caption: 'Salle de puzzle au design minimaliste guidant l\'attention du joueur' },
+      { src: '/projects/Project-Puzzle/Project-Puzzle3.jpg', caption: 'Progression à travers les énigmes et les portes verrouillées' },
     ],
   },
 ];

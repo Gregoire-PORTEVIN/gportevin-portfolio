@@ -9,11 +9,6 @@ interface VideoPlayerProps {
   cover?: string;
 }
 
-/**
- * Lecteur vidéo unifié.
- * - YouTube/Vimeo : pas de chargement avant que l'utilisateur clique (perf)
- * - Fichier local : lecteur HTML5 standard avec controls
- */
 export function VideoPlayer({ video, cover }: VideoPlayerProps) {
   const [playing, setPlaying] = useState(false);
 
@@ -33,8 +28,6 @@ export function VideoPlayer({ video, cover }: VideoPlayerProps) {
     );
   }
 
-  // YouTube ou Vimeo : on attend le clic pour ne pas charger inutilement
-  // (gain de perf énorme : un iframe YouTube = ~1 Mo)
   const embedUrl =
     video.kind === 'youtube'
       ? `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`
