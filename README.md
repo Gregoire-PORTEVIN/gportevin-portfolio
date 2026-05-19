@@ -10,17 +10,13 @@ Portfolio personnel — développeur jeu vidéo & technologies immersives.
 
 ### 1. Prérequis
 
-Installer **Node.js 18+** : [https://nodejs.org/](https://nodejs.org/) (prends la version LTS).
-
-Pour vérifier que c'est bon, ouvre un terminal :
+Installer **Node.js 18+** : [https://nodejs.org/](https://nodejs.org/).
 
 ```bash
 node --version
 ```
 
 ### 2. Installation
-
-Ouvre un terminal dans le dossier du projet :
 
 ```bash
 # Installer les dépendances (la première fois, ça prend ~1 min)
