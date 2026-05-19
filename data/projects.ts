@@ -170,7 +170,7 @@ export const projects: Project[] = [
       { src: '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX2.jpg', caption: 'Test du pipeline graphique : affichage de modèles 3D et ombres projetées' },
       { src: '/projects/Project-Moteur-C++-DirectX12/Project-C++-Moteur-DirectX3.jpg', caption: 'Prototype de jeu construit avec le moteur custom' },
     ],
-    github: 'https://github.com/Gregoire-PORTEVIN/Moteur-Jeu',
+    github: 'https://github.com/Gregoire-PORTEVIN/Moteur-3D-DirectX12',
   },
   {
     slug: 'unreal-master-1',
@@ -254,7 +254,7 @@ export const projects: Project[] = [
       { src: '/projects/Project-GoJo/Project-GoJo2.jpg', caption: 'Niveau avec mécaniques de plateforme et obstacles dynamiques' },
       { src: '/projects/Project-GoJo/Project-GoJo3.jpg', caption: 'Ambiance visuelle et direction artistique du jeu' },
     ],
-    github: 'https://github.com/Maquereauu/Go-jo',
+    github: 'https://github.com/Gregoire-PORTEVIN/GO-JO',
   },
   {
     slug: 'shaders-vfx-unity',
