@@ -29,7 +29,7 @@
 
 <br />
 
-## 📖 About
+## About
 
 A custom-built portfolio designed to showcase my projects in game development, 3D rendering and immersive tech. The site combines a dark "studio dev" aesthetic with subtle motion design — built entirely in Next.js 14 with the App Router, fully typed in TypeScript, and deployed on Vercel.
 
@@ -51,7 +51,7 @@ A custom-built portfolio designed to showcase my projects in game development, 3
 
 <br />
 
-## 🛠️ Tech stack
+## Tech stack
 
 | Layer | Technologies |
 |-------|--------------|
