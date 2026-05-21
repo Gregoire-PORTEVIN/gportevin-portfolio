@@ -8,19 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palette du portfolio
-        ink: '#0A0A0A',          // Fond principal noir
-        surface: '#121212',       // Cartes / surfaces
-        surface2: '#1A1A1A',     // Surfaces secondaires
-        line: '#262626',         // Bordures subtiles
-        muted: '#737373',        // Texte secondaire
-        soft: '#A3A3A3',         // Texte tertiaire
-        bright: '#FAFAFA',       // Texte principal
-        accent: '#FF5C39',       // Orange signature
+        // Portfolio color palette
+        ink: '#0A0A0A',          // Main dark background
+        surface: '#121212',       // Cards / surfaces
+        surface2: '#1A1A1A',     // Secondary surfaces
+        line: '#262626',         // Subtle borders
+        muted: '#737373',        // Secondary text
+        soft: '#A3A3A3',         // Tertiary text
+        bright: '#FAFAFA',       // Main text
+        accent: '#FF5C39',       // Signature orange
         'accent-soft': '#FF8A6B',
       },
       fontFamily: {
-        // Polices distinctives chargées via next/font dans layout.tsx
+        // Distinctive fonts loaded via next/font in layout.tsx
         sans: ['var(--font-display)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },

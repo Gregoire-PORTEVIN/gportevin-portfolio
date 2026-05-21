@@ -36,7 +36,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface/50" />
         </div>
 
-        {/* Contenu */}
+        {/* Content */}
         <div className="flex flex-col justify-center p-8 md:p-12">
           {/* Label featured */}
           <div className="mb-6 flex items-center gap-3">
@@ -58,7 +58,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
             {project.description}
           </p>
 
-          {/* Métadonnées */}
+          {/* Metadata */}
           <div className="mt-8 grid grid-cols-2 gap-4 border-t border-line pt-6">
             <div>
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">

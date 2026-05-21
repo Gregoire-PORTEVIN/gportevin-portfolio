@@ -29,7 +29,7 @@ export default function ProjectDetailPage({
   return (
     <article className="pt-24 pb-32">
       <div className="container-x">
-        {/* Retour */}
+        {/* Back */}
         <Link
           href="/#projets"
           className="link-underline mb-12 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted hover:text-accent"
@@ -38,7 +38,7 @@ export default function ProjectDetailPage({
           Tous les projets
         </Link>
 
-        {/* En-tête */}
+        {/* Header */}
         <div className="mb-12 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <div className="mb-4 flex items-center gap-3">
@@ -83,7 +83,7 @@ export default function ProjectDetailPage({
           </div>
         </div>
 
-        {/* Media principal : VIDEO si dispo, sinon image cover */}
+        {/* Main media: VIDEO if available, otherwise cover image */}
         <div className="mb-16">
           {project.video ? (
             <VideoPlayer video={project.video} cover={project.cover} />
@@ -103,9 +103,9 @@ export default function ProjectDetailPage({
           )}
         </div>
 
-        {/* Contenu : description + métadonnées */}
+        {/* Content: description + metadata */}
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-20">
-          {/* Texte */}
+          {/* Text */}
           <div className="space-y-12">
             <section>
               <div className="section-label mb-4">Description</div>
@@ -197,7 +197,7 @@ export default function ProjectDetailPage({
           </aside>
         </div>
 
-        {/* Galerie d'images (si dispo) */}
+        {/* Image gallery (if available) */}
         {project.gallery && project.gallery.length > 0 && (
           <section className="mt-20 border-t border-line pt-16">
             <div className="mb-8 flex items-end justify-between">
@@ -215,7 +215,7 @@ export default function ProjectDetailPage({
           </section>
         )}
 
-        {/* CTA bas de page */}
+        {/* Bottom page CTA */}
         <div className="mt-24 flex flex-col items-center gap-4 border-t border-line pt-12 text-center">
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
             Suite

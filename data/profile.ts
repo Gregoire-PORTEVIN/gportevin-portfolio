@@ -4,7 +4,7 @@
 // ============================================================
 
 export const profile = {
-  // Identité
+  // Identity
   firstName: 'Grégoire',
   lastName: 'Portevin',
   role: 'Développeur Jeu Vidéo & Technologies Immersives',
@@ -19,13 +19,13 @@ export const profile = {
   pitch:
     "Étudiant en Master Développeur Jeu Vidéo, rendu 3D temps réel et technologies immersives au Gaming Campus. Je m'intéresse particulièrement à la VR, à la simulation et aux moteurs de jeu — du gameplay au rendu, du temps réel à l'optimisation.",
 
-  // Statut alternance
+  // Internship status
   status: {
     label: 'Recherche alternance · Septembre 2026',
     available: true,
   },
 
-  // Stack principale (affichée en bandeau)
+  // Main stack (displayed as banner)
   primaryStack: [
     'C++',
     'Unreal Engine',
@@ -37,7 +37,7 @@ export const profile = {
     'React',
   ],
 
-  // Compétences détaillées (page about)
+  // Detailed skills (about page)
   skills: {
     Moteurs: ['Unreal Engine 5', 'Unity 3D'],
     Langages: ['C++', 'C#', 'Python', 'C', 'HLSL'],
@@ -47,7 +47,7 @@ export const profile = {
     Outils: ['Git / GitHub', 'Méthode Agile'],
   },
 
-  // Langues
+  // Languages
   languages: [
     { name: 'Français', level: 'Langue maternelle' },
     { name: 'Anglais', level: 'B1 — lecture technique courante' },
@@ -60,7 +60,7 @@ export const profile = {
     phone: '07 66 16 14 26',
   },
 
-  // Liens
+  // Links
   socials: {
     linkedin: 'https://www.linkedin.com/in/grégoire-portevin-166063253/',
     github: 'https://github.com/Gregoire-PORTEVIN',

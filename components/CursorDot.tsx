@@ -3,8 +3,8 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Petit point orange qui suit la souris sur desktop.
- * Désactivé sur mobile / touch automatiquement via CSS media query.
+ * Small orange dot that follows the cursor on desktop.
+ * Automatically disabled on mobile / touch via CSS media query.
  */
 export function CursorDot() {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export function CursorDot() {
 
     const onEnter = () => dot.style.transform += ' scale(2.5)';
     const onLeave = () => {
-      // Reset scale (recalculé par la prochaine frame)
+      // Reset scale (recalculated on the next frame)
     };
 
     window.addEventListener('mousemove', onMove);

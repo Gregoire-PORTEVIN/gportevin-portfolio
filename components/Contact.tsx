@@ -7,7 +7,7 @@ import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
 export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden border-t border-line py-24 md:py-32">
-      {/* Halo orange */}
+      {/* Orange glow */}
       <div
         className="absolute -bottom-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full opacity-10 blur-[120px]"
         style={{ backgroundColor: '#FF5C39' }}
@@ -52,7 +52,7 @@ export function Contact() {
             contacter.
           </motion.p>
 
-          {/* Email principal */}
+          {/* Main email */}
           <motion.a
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export function Contact() {
           </motion.a>
         </div>
 
-        {/* Grid d'infos */}
+        {/* Info grid */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -110,7 +110,7 @@ export function Contact() {
           </div>
         </motion.div>
 
-        {/* Réseaux */}
+        {/* Social links */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

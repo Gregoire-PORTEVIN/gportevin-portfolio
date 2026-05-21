@@ -6,10 +6,10 @@ import { Footer } from '@/components/Footer';
 import { CursorDot } from '@/components/CursorDot';
 
 // ============================================================
-// POLICES — Combinaison distinctive
-// - DM Sans : sans-serif principale (texte courant, lisible)
-// - Instrument Serif : touche éditoriale pour les accents (italique)
-// - JetBrains Mono : code-like pour labels et tags
+// FONTS — Distinctive combination
+// - DM Sans: main sans-serif (body text, readable)
+// - Instrument Serif: editorial touch for emphasis (italic)
+// - JetBrains Mono: code-like for labels and tags
 // ============================================================
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   title: 'Grégoire Portevin — Dev Jeu Vidéo & Technologies Immersives',
   description:
     "Portfolio de Grégoire Portevin, étudiant en Master Développeur Jeu Vidéo. C++, Unreal Engine, Unity, VR.",
-  // IMPORTANT : noindex pour ne PAS apparaître sur Google
+  // IMPORTANT: noindex to NOT appear on Google
   robots: {
     index: false,
     follow: false,

@@ -12,7 +12,7 @@ interface VideoPlayerProps {
 export function VideoPlayer({ video, cover }: VideoPlayerProps) {
   const [playing, setPlaying] = useState(false);
 
-  // Vidéo fichier local
+  // Local video file
   if (video.kind === 'file') {
     return (
       <div className="overflow-hidden border border-line bg-black">
@@ -68,17 +68,17 @@ export function VideoPlayer({ video, cover }: VideoPlayerProps) {
             <div className="h-full w-full grid-background" />
           )}
 
-          {/* Overlay sombre */}
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity group-hover/btn:opacity-80" />
 
-          {/* Bouton play */}
+          {/* Play button */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-accent text-ink shadow-2xl transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-accent-soft">
               <Play size={28} fill="currentColor" className="ml-1" />
             </div>
           </div>
 
-          {/* Label en bas */}
+          {/* Bottom label */}
           <div className="absolute bottom-4 left-4 font-mono text-xs uppercase tracking-[0.2em] text-white/80">
             ▶ Lancer la démo
           </div>

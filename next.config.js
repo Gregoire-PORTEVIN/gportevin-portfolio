@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Headers : empêche l'indexation Google sur TOUT le site
+  // Headers: prevents Google indexing on the entire site
   async headers() {
     return [
       {
@@ -13,7 +13,7 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      // Au cas où tu veux héberger tes images ailleurs (Cloudinary, etc.)
+      // In case you want to host images elsewhere (Cloudinary, etc.)
       { protocol: 'https', hostname: '**' },
     ],
   },

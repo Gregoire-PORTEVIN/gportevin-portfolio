@@ -25,7 +25,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Image cover */}
         <div className="relative aspect-[16/10] overflow-hidden bg-surface2">
-          {/* Placeholder pattern si pas d'image */}
+          {/* Placeholder pattern if no image */}
           <div
             className="absolute inset-0 grid-background opacity-50 transition-transform duration-700 group-hover:scale-105"
             style={{
@@ -40,12 +40,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Overlay gradient bottom */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface to-transparent" />
 
-          {/* Année en haut à droite */}
+          {/* Year at top right */}
           <div className="absolute right-4 top-4 font-mono text-xs text-soft">
             {project.year}
           </div>
 
-          {/* Catégorie en bas à gauche */}
+          {/* Category at bottom left */}
           <div className="absolute bottom-4 left-4 flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-accent" />
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft">
@@ -54,7 +54,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Contenu */}
+        {/* Content */}
         <div className="border-t border-line p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">

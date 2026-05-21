@@ -8,7 +8,7 @@ export function About() {
     <section id="a-propos" className="border-t border-line py-24 md:py-32">
       <div className="container-x">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-24">
-          {/* Texte */}
+          {/* Text */}
           <div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -88,7 +88,7 @@ export function About() {
             </motion.div>
           </div>
 
-          {/* Compétences */}
+          {/* Skills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

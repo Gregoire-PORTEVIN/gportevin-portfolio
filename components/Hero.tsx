@@ -7,17 +7,17 @@ import { ArrowDown } from 'lucide-react';
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
-      {/* Grille de fond style blueprint */}
+      {/* Blueprint-style background grid */}
       <div className="absolute inset-0 grid-background opacity-40" />
 
-      {/* Halo orange en bas à droite */}
+      {/* Orange glow at bottom right */}
       <div
         className="absolute -bottom-1/4 -right-1/4 h-[600px] w-[600px] rounded-full opacity-20 blur-[120px]"
         style={{ backgroundColor: '#FF5C39' }}
       />
 
       <div className="container-x relative z-10 py-20">
-        {/* Label en haut */}
+        {/* Top label */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Titre principal */}
+        {/* Main title */}
         <h1 className="section-title max-w-4xl">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ export function Hero() {
           {profile.pitch}
         </motion.p>
 
-        {/* Boutons */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Indicateur de scroll en bas */}
+      {/* Scroll indicator at the bottom */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

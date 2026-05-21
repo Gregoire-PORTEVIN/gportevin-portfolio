@@ -13,7 +13,7 @@ type ExperienceItem = {
 };
 
 // ============================================================
-// PARCOURS — modifie ici pour ajouter / mettre à jour
+// CAREER — edit here to add / update entries
 // ============================================================
 const items: ExperienceItem[] = [
   {
@@ -104,7 +104,7 @@ export function Experience() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Ligne verticale */}
+          {/* Vertical line */}
           <div className="absolute left-0 top-0 hidden h-full w-px bg-line md:block md:left-[180px]" />
 
           <div className="space-y-12">
@@ -124,10 +124,10 @@ export function Experience() {
                   </div>
                 </div>
 
-                {/* Point sur la timeline (desktop) */}
+                {/* Timeline dot (desktop) */}
                 <div className="absolute left-[174px] top-1 hidden h-3 w-3 rounded-full border-2 border-ink bg-accent md:block" />
 
-                {/* Contenu */}
+                {/* Content */}
                 <div>
                   <div className="mb-1 flex items-center gap-3">
                     <span

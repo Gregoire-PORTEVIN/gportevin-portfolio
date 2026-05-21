@@ -10,12 +10,12 @@ interface MediaGalleryProps {
 }
 
 /**
- * Galerie d'images avec :
- * - Image principale grande
- * - Vignettes en bas pour naviguer
- * - Flèches gauche/droite
- * - Lightbox (zoom plein écran au clic)
- * - Navigation au clavier (flèches + Escape)
+ * Image gallery with:
+ * - Large main image
+ * - Thumbnails at the bottom for navigation
+ * - Left/right arrows
+ * - Lightbox (full-screen zoom on click)
+ * - Keyboard navigation (arrows + Escape)
  */
 export function MediaGallery({ images }: MediaGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,7 +29,7 @@ export function MediaGallery({ images }: MediaGalleryProps) {
     setActiveIndex((i) => (i === images.length - 1 ? 0 : i + 1));
   }, [images.length]);
 
-  // Navigation au clavier
+  // Keyboard navigation
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') goPrev();
@@ -47,7 +47,7 @@ export function MediaGallery({ images }: MediaGalleryProps) {
   return (
     <>
       <div className="space-y-3">
-        {/* Image principale */}
+        {/* Main image */}
         <div className="group relative aspect-[16/10] overflow-hidden border border-line bg-surface2">
           <AnimatePresence mode="wait">
             <motion.button
@@ -69,13 +69,13 @@ export function MediaGallery({ images }: MediaGalleryProps) {
             </motion.button>
           </AnimatePresence>
 
-          {/* Icône zoom */}
+          {/* Zoom icon */}
           <div className="pointer-events-none absolute right-4 top-4 flex items-center gap-2 border border-white/20 bg-black/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/80 backdrop-blur-sm opacity-0 transition-opacity group-hover:opacity-100">
             <ZoomIn size={12} />
             Agrandir
           </div>
 
-          {/* Flèches navigation */}
+          {/* Navigation arrows */}
           {images.length > 1 && (
             <>
               <button
@@ -101,7 +101,7 @@ export function MediaGallery({ images }: MediaGalleryProps) {
             </>
           )}
 
-          {/* Compteur */}
+          {/* Counter */}
           <div className="absolute bottom-4 left-4 font-mono text-xs text-white/80">
             <span className="text-accent">
               {String(activeIndex + 1).padStart(2, '0')}
@@ -110,14 +110,14 @@ export function MediaGallery({ images }: MediaGalleryProps) {
           </div>
         </div>
 
-        {/* Légende */}
+        {/* Caption */}
         {active.caption && (
           <p className="font-mono text-xs leading-relaxed text-muted">
             <span className="text-accent">→</span> {active.caption}
           </p>
         )}
 
-        {/* Vignettes */}
+        {/* Thumbnails */}
         {images.length > 1 && (
           <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8">
             {images.map((img, idx) => (
@@ -143,7 +143,7 @@ export function MediaGallery({ images }: MediaGalleryProps) {
         )}
       </div>
 
-      {/* Lightbox plein écran */}
+      {/* Full-screen lightbox */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
