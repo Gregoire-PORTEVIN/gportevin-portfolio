@@ -33,21 +33,21 @@
 
 A custom-built portfolio designed to showcase my projects in game development, 3D rendering and immersive tech. The site combines a dark "studio dev" aesthetic with subtle motion design — built entirely in Next.js 14 with the App Router, fully typed in TypeScript, and deployed on Vercel.
 
-> 🎨 Built around a consistent visual identity: dark theme, orange `#FF5C39` accent, custom typography pairing (DM Sans · Instrument Serif · JetBrains Mono).
+> Built around a consistent visual identity: dark theme, orange `#FF5C39` accent, custom typography pairing (DM Sans · Instrument Serif · JetBrains Mono).
 
 <br />
 
-## ✨ Features
+## Features
 
-- 🎬 **Embedded video player** — YouTube, Vimeo and local file support, with lazy loading for performance
-- 🖼️ **Media gallery** — image carousel with thumbnails, lightbox view, and keyboard navigation
-- 🎯 **Featured project** — highlighted spot on the homepage for the latest / strongest work
-- 🔍 **Category filters** — filter projects by type (stage, engine, game, shaders…)
-- 📍 **Dynamic project pages** — fully statically generated from a single data file
-- 🎨 **Custom cursor** — smooth follower dot for desktop visitors
-- 📱 **Fully responsive** — mobile, tablet, desktop
-- ⚡ **Fast & lightweight** — ~140 KB first load JS, static pre-rendering
-- 🔒 **Private by default** — `noindex` set everywhere (visible only to people I share the link with)
+- **Embedded video player** — YouTube, Vimeo and local file support, with lazy loading for performance
+- **Media gallery** — image carousel with thumbnails, lightbox view, and keyboard navigation
+- **Featured project** — highlighted spot on the homepage for the latest / strongest work
+- **Category filters** — filter projects by type (stage, engine, game, shaders…)
+- **Dynamic project pages** — fully statically generated from a single data file
+- **Custom cursor** — smooth follower dot for desktop visitors
+- **Fully responsive** — mobile, tablet, desktop
+- **Fast & lightweight** — ~140 KB first load JS, static pre-rendering
+- **Private by default** — `noindex` set everywhere (visible only to people I share the link with)
 
 <br />
 
@@ -65,7 +65,7 @@ A custom-built portfolio designed to showcase my projects in game development, 3
 
 <br />
 
-## 🏗️ Architecture
+## Architecture
 
 The site is structured around a clean separation between **data** and **components** — adding a new project is just a matter of editing one file.
 
@@ -98,7 +98,7 @@ gportevin-portfolio/
 
 <br />
 
-## 🚀 Run locally
+## Run locally
 
 ```bash
 # 1. Clone the repo
@@ -126,11 +126,11 @@ npm start       # Run the production server
 
 <br />
 
-## 🔗 Links
+## Links
 
-- 🌐 **Live site** — [gportevin-portfolio.vercel.app](https://gportevin-portfolio.vercel.app)
-- 👤 **More about me** — [LinkedIn](https://www.linkedin.com/in/grégoire-portevin-166063253/)
-- 📧 **Contact** — gregoireportevin@gmail.com
+- **Live site** — [gportevin-portfolio.vercel.app](https://gportevin-portfolio.vercel.app)
+- **More about me** — [LinkedIn](https://www.linkedin.com/in/grégoire-portevin-166063253/)
+- **Contact** — gregoireportevin@gmail.com
 
 <br />
 
