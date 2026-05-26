@@ -73,6 +73,7 @@ export const projects: Project[] = [
       { src: '/projects/Stage-Inrae/Stage-Inrae2.jpg', caption: 'Couche cellulaire en pleine attaque de champignons, rendue sous Unreal Engine' },
       { src: '/projects/Stage-Inrae/Stage-Inrae3.jpg', caption: 'Interface du plugin Irritator intégré à Unreal Engine' },
     ],
+    github: 'https://github.com/Gregoire-PORTEVIN/IntegrationIrritator',
     featured: true,
   },
 
