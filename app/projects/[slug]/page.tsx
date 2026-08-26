@@ -92,7 +92,7 @@ export default function ProjectDetailPage({
 
         {/* Main media */}
         <div className="mb-16">
-          {project.video && project.video.id ? (
+          {project.video && (project.video.kind === 'youtube' || project.video.kind == 'vimeo') && project.video.id ? (
             <VideoPlayer video={project.video} cover={project.cover} />
           ) : (
             <div className="aspect-[16/9] overflow-hidden border border-line bg-surface">
