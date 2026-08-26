@@ -13,9 +13,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = use(params);
+  const { slug } = params;
   const { lang, t } = useLanguage();
 
   const project =

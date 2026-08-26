@@ -86,7 +86,7 @@ export const projects: Project[] = [
     context: 'Projet Fil Rouge — Master 1, Gaming Campus',
     team: 'Équipe de 2',
     stack: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara'],
-    cover: '/projects/Astral-Corruption/cover-Astral-Corruption.jpg',
+    cover: '',
     description:
       "Astral Corruption est un jeu d'aventure-exploration à la troisième personne dans lequel le joueur est piégé dans un temple alien envahi par une énergie corrompue organique. Armé d'une épée et d'un arc énergétique, il doit purifier les zones infectées, résoudre des énigmes environnementales et affronter des gardiens corrompus pour réactiver les 4 balises Astrales et trouver la sortie.",
     highlights: [
