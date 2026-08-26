@@ -1,33 +1,40 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { use } from 'react';
 import { ArrowLeft, ArrowUpRight, Github, Play } from 'lucide-react';
-import { projects, getProjectBySlug, categoryLabels } from '@/data/projects';
+import { projects, getProjectBySlug } from '@/data/projects';
+import { getProjectEnBySlug } from '@/data/projects.en';
 import { VideoPlayer } from '@/components/VideoPlayer';
 import { MediaGallery } from '@/components/MediaGallery';
-
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
-
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-  if (!project) return { title: 'Projet introuvable' };
-  return {
-    title: `${project.title} — Grégoire Portevin`,
-    description: project.subtitle,
-  };
-}
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = getProjectBySlug(params.slug);
+  const { slug } = use(params);
+  const { lang, t } = useLanguage();
+
+  const project =
+    lang === 'en'
+      ? (getProjectEnBySlug(slug) ?? getProjectBySlug(slug))
+      : getProjectBySlug(slug);
+
   if (!project) notFound();
 
+  const categoryLabels: Record<string, string> = {
+    stage:   t('Stage', 'Internship'),
+    moteur:  t('Moteur & Tech', 'Engine & Tech'),
+    jeu:     t('Jeu vidéo', 'Game'),
+    shaders: t('Shaders & VFX', 'Shaders & VFX'),
+    web:     t('Web', 'Web'),
+  };
+
   return (
-    <article className="pt-24 pb-32">
+    <article className="pb-32 pt-24">
       <div className="container-x">
         {/* Back */}
         <Link
@@ -35,7 +42,7 @@ export default function ProjectDetailPage({
           className="link-underline mb-12 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted hover:text-accent"
         >
           <ArrowLeft size={14} />
-          Tous les projets
+          {t('Tous les projets', 'All projects')}
         </Link>
 
         {/* Header */}
@@ -44,7 +51,7 @@ export default function ProjectDetailPage({
             <div className="mb-4 flex items-center gap-3">
               <div className="h-1.5 w-1.5 rounded-full bg-accent" />
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
-                {categoryLabels[project.category]} · {project.year}
+                {categoryLabels[project.category] ?? project.category} · {project.year}
               </span>
             </div>
             <h1 className="text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
@@ -83,18 +90,16 @@ export default function ProjectDetailPage({
           </div>
         </div>
 
-        {/* Main media: VIDEO if available, otherwise cover image */}
+        {/* Main media */}
         <div className="mb-16">
-          {project.video ? (
+          {project.video && project.video.id ? (
             <VideoPlayer video={project.video} cover={project.cover} />
           ) : (
             <div className="aspect-[16/9] overflow-hidden border border-line bg-surface">
               <div
                 className="h-full w-full grid-background"
                 style={{
-                  backgroundImage: project.cover
-                    ? `url(${project.cover})`
-                    : undefined,
+                  backgroundImage: project.cover ? `url(${project.cover})` : undefined,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
@@ -103,19 +108,22 @@ export default function ProjectDetailPage({
           )}
         </div>
 
-        {/* Content: description + metadata */}
+        {/* Content */}
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-20">
-          {/* Text */}
           <div className="space-y-12">
             <section>
-              <div className="section-label mb-4">Description</div>
+              <div className="section-label mb-4">
+                {t('Description', 'Description')}
+              </div>
               <p className="text-lg leading-relaxed text-bright">
                 {project.description}
               </p>
             </section>
 
             <section>
-              <div className="section-label mb-4">Réalisations</div>
+              <div className="section-label mb-4">
+                {t('Réalisations', 'Highlights')}
+              </div>
               <ul className="space-y-3">
                 {project.highlights.map((h, i) => (
                   <li
@@ -133,7 +141,9 @@ export default function ProjectDetailPage({
 
             {project.learnings && (
               <section>
-                <div className="section-label mb-4">Ce que j'ai appris</div>
+                <div className="section-label mb-4">
+                  {t("Ce que j'ai appris", 'What I learned')}
+                </div>
                 <ul className="space-y-3">
                   {project.learnings.map((l, i) => (
                     <li
@@ -149,33 +159,27 @@ export default function ProjectDetailPage({
             )}
           </div>
 
-          {/* Sidebar info */}
+          {/* Sidebar */}
           <aside className="space-y-6">
             <div className="border border-line bg-surface p-6">
               <div className="space-y-5">
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                    Contexte
+                    {t('Contexte', 'Context')}
                   </div>
-                  <div className="mt-1.5 text-sm text-bright">
-                    {project.context}
-                  </div>
+                  <div className="mt-1.5 text-sm text-bright">{project.context}</div>
                 </div>
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                    Équipe
+                    {t('Équipe', 'Team')}
                   </div>
-                  <div className="mt-1.5 text-sm text-bright">
-                    {project.team}
-                  </div>
+                  <div className="mt-1.5 text-sm text-bright">{project.team}</div>
                 </div>
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                    Année
+                    {t('Année', 'Year')}
                   </div>
-                  <div className="mt-1.5 text-sm text-bright">
-                    {project.year}
-                  </div>
+                  <div className="mt-1.5 text-sm text-bright">{project.year}</div>
                 </div>
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
@@ -197,34 +201,31 @@ export default function ProjectDetailPage({
           </aside>
         </div>
 
-        {/* Image gallery (if available) */}
+        {/* Gallery */}
         {project.gallery && project.gallery.length > 0 && (
           <section className="mt-20 border-t border-line pt-16">
             <div className="mb-8 flex items-end justify-between">
               <div>
-                <div className="section-label">Galerie</div>
+                <div className="section-label">{t('Galerie', 'Gallery')}</div>
                 <h2 className="mt-3 text-2xl font-medium tracking-tight md:text-3xl">
-                  Aperçus du projet
+                  {t('Aperçus du projet', 'Project screenshots')}
                 </h2>
               </div>
               <span className="hidden font-mono text-xs text-muted md:block">
-                ← → pour naviguer
+                {t('← → pour naviguer', '← → to navigate')}
               </span>
             </div>
             <MediaGallery images={project.gallery} />
           </section>
         )}
 
-        {/* Bottom page CTA */}
+        {/* Bottom CTA */}
         <div className="mt-24 flex flex-col items-center gap-4 border-t border-line pt-12 text-center">
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
-            Suite
+            {t('Suite', 'Next')}
           </span>
-          <Link
-            href="/#projets"
-            className="link-underline text-2xl font-medium md:text-3xl"
-          >
-            Voir les autres projets →
+          <Link href="/#projets" className="link-underline text-2xl font-medium md:text-3xl">
+            {t('Voir les autres projets →', 'See other projects →')}
           </Link>
         </div>
       </div>

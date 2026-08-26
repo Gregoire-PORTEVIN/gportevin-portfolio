@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type ExperienceItem = {
   period: string;
@@ -12,10 +13,7 @@ type ExperienceItem = {
   stack?: string[];
 };
 
-// ============================================================
-// CAREER — edit here to add / update entries
-// ============================================================
-const items: ExperienceItem[] = [
+const itemsFr: ExperienceItem[] = [
   {
     period: 'Févr. 2026 — En cours',
     role: 'Développeur Moteur — Modélisation & Portabilité',
@@ -40,7 +38,7 @@ const items: ExperienceItem[] = [
     location: 'Lyon',
     type: 'experience',
     description:
-      "Prototypage de mécaniques de jeu sous Unity3D puis portage vers le moteur custom en C++. Collaboration inter-pôles QA et Moteur.",
+      'Prototypage de mécaniques de jeu sous Unity3D puis portage vers le moteur custom en C++. Collaboration inter-pôles QA et Moteur.',
     stack: ['Unity', 'C#', 'C++'],
   },
   {
@@ -71,7 +69,66 @@ const items: ExperienceItem[] = [
   },
 ];
 
+const itemsEn: ExperienceItem[] = [
+  {
+    period: 'Feb. 2026 — Present',
+    role: 'Engine Developer — Modelling & Portability',
+    org: 'INRAE',
+    location: 'Toulouse',
+    type: 'experience',
+    description:
+      'Built an Unreal Engine C++ plugin bridging a scientific simulation engine with real-time 3D visualization. Procedural modelling of cell layers via Python and Blender scripts.',
+    stack: ['C++', 'Unreal Engine', 'Python', 'Blender'],
+  },
+  {
+    period: '2025 — 2027',
+    role: "Master's — Video Game Development, Real-Time 3D & Immersive Technologies",
+    org: 'Master GTech — Gaming Campus',
+    location: 'Lyon',
+    type: 'education',
+  },
+  {
+    period: 'Jun. — Jul. 2025',
+    role: 'Gameplay Developer — Unity3D & Custom C++ Engine',
+    org: 'Gaming Campus',
+    location: 'Lyon',
+    type: 'experience',
+    description:
+      'Prototyped gameplay mechanics in Unity3D and ported them to a custom C++ engine. Cross-team collaboration with QA and Engine teams.',
+    stack: ['Unity', 'C#', 'C++'],
+  },
+  {
+    period: 'May — Jul. 2024',
+    role: 'Web Developer — React / Next.js / Redux',
+    org: 'Pignat / 3DVerse',
+    location: 'Lyon',
+    type: 'experience',
+    description:
+      'Built a Next.js web interface enabling remote simulation and control of lab machines for engineering students.',
+    stack: ['Next.js', 'React', 'Redux', 'TailwindCSS'],
+  },
+  {
+    period: '2022 — 2025',
+    role: "Bachelor's — Computer Science, Video Game Specialization",
+    org: 'Gaming Campus',
+    location: 'Lyon',
+    type: 'education',
+    description: '40+ team projects completed over 3 years.',
+  },
+  {
+    period: '2021',
+    role: 'High School Diploma — Mathematics / Physics-Chemistry',
+    org: 'Lycée Honoré Romane',
+    location: 'Embrun',
+    type: 'education',
+    description: 'With Honours.',
+  },
+];
+
 export function Experience() {
+  const { lang, t } = useLanguage();
+  const items = lang === 'en' ? itemsEn : itemsFr;
+
   return (
     <section id="parcours" className="border-t border-line py-24 md:py-32">
       <div className="container-x">
@@ -82,7 +139,7 @@ export function Experience() {
             viewport={{ once: true }}
             className="section-label"
           >
-            03 / Parcours
+            {t('03 / Parcours', '03 / Experience')}
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -91,22 +148,20 @@ export function Experience() {
             transition={{ duration: 0.6 }}
             className="section-title mt-4"
           >
-            Mon{' '}
+            {t('Mon', 'My')}{' '}
             <span
               style={{ fontFamily: 'var(--font-serif)' }}
               className="italic text-accent"
             >
-              parcours
+              {t('parcours', 'journey')}
             </span>
-            , étape par étape.
+            {t(', étape par étape.', ', step by step.')}
           </motion.h2>
         </div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
           <div className="absolute left-0 top-0 hidden h-full w-px bg-line md:block md:left-[180px]" />
-
           <div className="space-y-12">
             {items.map((item, idx) => (
               <motion.div
@@ -117,27 +172,20 @@ export function Experience() {
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 className="relative grid gap-4 md:grid-cols-[180px_1fr] md:gap-12"
               >
-                {/* Date */}
                 <div className="relative">
-                  <div className="font-mono text-xs text-muted">
-                    {item.period}
-                  </div>
+                  <div className="font-mono text-xs text-muted">{item.period}</div>
                 </div>
-
-                {/* Timeline dot (desktop) */}
                 <div className="absolute left-[174px] top-1 hidden h-3 w-3 rounded-full border-2 border-ink bg-accent md:block" />
-
-                {/* Content */}
                 <div>
                   <div className="mb-1 flex items-center gap-3">
                     <span
                       className={`font-mono text-[10px] uppercase tracking-[0.2em] ${
-                        item.type === 'experience'
-                          ? 'text-accent'
-                          : 'text-muted'
+                        item.type === 'experience' ? 'text-accent' : 'text-muted'
                       }`}
                     >
-                      {item.type === 'experience' ? '→ Expérience' : '◇ Formation'}
+                      {item.type === 'experience'
+                        ? t('→ Expérience', '→ Experience')
+                        : t('◇ Formation', '◇ Education')}
                     </span>
                   </div>
                   <h3 className="text-lg font-medium leading-snug text-bright">

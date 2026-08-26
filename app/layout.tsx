@@ -4,6 +4,7 @@ import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { CursorDot } from '@/components/CursorDot';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 // ============================================================
 // FONTS — Distinctive combination
@@ -34,7 +35,6 @@ export const metadata: Metadata = {
   title: 'Grégoire Portevin — Dev Jeu Vidéo & Technologies Immersives',
   description:
     "Portfolio de Grégoire Portevin, étudiant en Master Développeur Jeu Vidéo. C++, Unreal Engine, Unity, VR.",
-  // IMPORTANT: noindex to NOT appear on Google
   robots: {
     index: false,
     follow: false,
@@ -53,10 +53,12 @@ export default function RootLayout({
       className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
     >
       <body className="flex min-h-screen flex-col">
-        <CursorDot />
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <CursorDot />
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

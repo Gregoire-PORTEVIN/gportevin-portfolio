@@ -1,10 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { profile } from '@/data/profile';
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { profile } from '@/data/profile';
+import { profileEn } from '@/data/profile.en';
 
 export function Hero() {
+  const { lang, t } = useLanguage();
+  const p = lang === 'en' ? profileEn : profile;
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
       {/* Blueprint-style background grid */}
@@ -38,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="block"
           >
-            {profile.tagline.line1}
+            {p.tagline.line1}
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -50,7 +55,7 @@ export function Hero() {
               style={{ fontFamily: 'var(--font-serif)' }}
               className="italic text-accent"
             >
-              {profile.tagline.highlight}
+              {p.tagline.highlight}
             </span>
           </motion.span>
           <motion.span
@@ -59,7 +64,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="block"
           >
-            {profile.tagline.line2}
+            {p.tagline.line2}
           </motion.span>
         </h1>
 
@@ -70,7 +75,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mt-10 max-w-2xl text-base leading-relaxed text-soft md:text-lg"
         >
-          {profile.pitch}
+          {p.pitch}
         </motion.p>
 
         {/* Buttons */}
@@ -81,20 +86,20 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a
-            href="#projets"
+            href="/#projets"
             className="group inline-flex items-center gap-3 bg-accent px-6 py-3 text-sm font-medium text-ink transition-all hover:bg-accent-soft"
           >
-            Voir mes projets
+            {t('Voir mes projets', 'See my projects')}
             <ArrowDown
               size={16}
               className="transition-transform group-hover:translate-y-0.5"
             />
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="link-underline inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-bright"
           >
-            Me contacter
+            {t('Me contacter', 'Get in touch')}
           </a>
         </motion.div>
 
@@ -110,11 +115,11 @@ export function Hero() {
               Stack
             </span>
             <span className="font-mono text-xs text-muted">
-              {profile.primaryStack.length} technologies
+              {p.primaryStack.length} {t('technologies', 'technologies')}
             </span>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-3">
-            {profile.primaryStack.map((tech) => (
+            {p.primaryStack.map((tech) => (
               <span
                 key={tech}
                 className="font-mono text-sm text-soft transition-colors hover:text-accent"
@@ -126,7 +131,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator at the bottom */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -135,7 +140,7 @@ export function Hero() {
       >
         <div className="flex flex-col items-center gap-2 text-muted">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em]">
-            Scroll
+            {t('Scroll', 'Scroll')}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

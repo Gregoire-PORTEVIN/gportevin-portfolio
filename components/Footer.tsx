@@ -1,7 +1,11 @@
-import Link from 'next/link';
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 import { profile } from '@/data/profile';
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-line bg-surface/30">
       <div className="container-x py-12">
@@ -29,7 +33,7 @@ export function Footer() {
 
           <div>
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Liens
+              {t('Liens', 'Links')}
             </div>
             <div className="mt-3 space-y-1.5 text-sm">
               <a
@@ -53,24 +57,34 @@ export function Footer() {
 
           <div>
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Statut
+              {t('Statut', 'Status')}
             </div>
             <div className="mt-3 flex items-center gap-2.5 text-sm text-bright">
               <span className="status-dot" />
-              <span>En recherche d'alternance — Septembre 2026</span>
+              <span>
+                {t(
+                  "En recherche d'alternance — Septembre 2026",
+                  'Open to apprenticeship — September 2026'
+                )}
+              </span>
             </div>
             <div className="mt-2 text-xs text-soft">
-              N'hésitez pas à me contacter, je réponds rapidement.
+              {t(
+                "N'hésitez pas à me contacter, je réponds rapidement.",
+                'Feel free to reach out, I reply quickly.'
+              )}
             </div>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start gap-2 border-t border-line pt-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
           <div>
-            © {new Date().getFullYear()} {profile.firstName} {profile.lastName}
-            . Tous droits réservés.
+            © {new Date().getFullYear()} {profile.firstName} {profile.lastName}.{' '}
+            {t('Tous droits réservés.', 'All rights reserved.')}
           </div>
-          <div className="font-mono">Conçu et développé avec Next.js</div>
+          <div className="font-mono">
+            {t('Conçu et développé avec Next.js', 'Designed & built with Next.js')}
+          </div>
         </div>
       </div>
     </footer>

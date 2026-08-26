@@ -3,16 +3,19 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { profile } from '@/data/profile';
-
-const navItems = [
-  { label: 'Projets', href: '/#projets' },
-  { label: 'Parcours', href: '/#parcours' },
-  { label: 'À propos', href: '/#a-propos' },
-  { label: 'Contact', href: '/#contact' },
-];
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t('Projets', 'Projects'),    href: '/#projets' },
+    { label: t('Parcours', 'Experience'), href: '/#parcours' },
+    { label: t('À propos', 'About'),      href: '/#a-propos' },
+    { label: t('Contact', 'Contact'),     href: '/#contact' },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -52,19 +55,23 @@ export function Navigation() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
           <span className="flex items-center gap-2 font-mono text-xs text-soft">
             <span className="status-dot" />
-            Dispo Sept. 2026
+            {t('Dispo Sept. 2026', 'Avail. Sept. 2026')}
           </span>
         </div>
 
-        {/* Mobile : juste le statut + lien projets */}
-        <Link
-          href="/#projets"
-          className="font-mono text-xs text-accent md:hidden"
-        >
-          Projets →
-        </Link>
+        {/* Mobile : switcher + lien projets */}
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageSwitcher />
+          <Link
+            href="/#projets"
+            className="font-mono text-xs text-accent"
+          >
+            {t('Projets →', 'Projects →')}
+          </Link>
+        </div>
       </div>
     </header>
   );

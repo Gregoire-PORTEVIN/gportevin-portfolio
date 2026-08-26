@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '@/data/projects';
-import { categoryLabels } from '@/data/projects';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
@@ -12,6 +12,16 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const { t } = useLanguage();
+
+  const categoryLabels: Record<string, string> = {
+    stage:   t('Stage', 'Internship'),
+    moteur:  t('Moteur & Tech', 'Engine & Tech'),
+    jeu:     t('Jeu vidéo', 'Game'),
+    shaders: t('Shaders & VFX', 'Shaders & VFX'),
+    web:     t('Web', 'Web'),
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -25,31 +35,22 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         {/* Image cover */}
         <div className="relative aspect-[16/10] overflow-hidden bg-surface2">
-          {/* Placeholder pattern if no image */}
           <div
             className="absolute inset-0 grid-background opacity-50 transition-transform duration-700 group-hover:scale-105"
             style={{
-              backgroundImage: project.cover
-                ? `url(${project.cover})`
-                : undefined,
+              backgroundImage: project.cover ? `url(${project.cover})` : undefined,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
           />
-
-          {/* Overlay gradient bottom */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface to-transparent" />
-
-          {/* Year at top right */}
           <div className="absolute right-4 top-4 font-mono text-xs text-soft">
             {project.year}
           </div>
-
-          {/* Category at bottom left */}
           <div className="absolute bottom-4 left-4 flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-accent" />
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft">
-              {categoryLabels[project.category]}
+              {categoryLabels[project.category] ?? project.category}
             </span>
           </div>
         </div>
@@ -70,8 +71,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               className="shrink-0 text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
             />
           </div>
-
-          {/* Stack */}
           <div className="mt-5 flex flex-wrap gap-1.5">
             {project.stack.slice(0, 4).map((tech) => (
               <span

@@ -1,13 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { profile } from '@/data/profile';
 import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { profile } from '@/data/profile';
 
 export function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="relative overflow-hidden border-t border-line py-24 md:py-32">
-      {/* Orange glow */}
       <div
         className="absolute -bottom-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full opacity-10 blur-[120px]"
         style={{ backgroundColor: '#FF5C39' }}
@@ -21,7 +23,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="section-label"
           >
-            05 / Contact
+            {t('05 / Contact', '05 / Contact')}
           </motion.div>
 
           <motion.h2
@@ -31,12 +33,12 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="mt-4 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl"
           >
-            Discutons de votre{' '}
+            {t("Discutons de votre", "Let's talk about your")}{' '}
             <span
               style={{ fontFamily: 'var(--font-serif)' }}
               className="italic text-accent"
             >
-              prochain projet.
+              {t('prochain projet.', 'next project.')}
             </span>
           </motion.h2>
 
@@ -47,12 +49,12 @@ export function Contact() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-8 max-w-2xl text-base text-soft md:text-lg"
           >
-            Que vous ayez une offre d'alternance, une question sur mon
-            travail, ou simplement envie d'échanger — n'hésitez pas à me
-            contacter.
+            {t(
+              "Que vous ayez une offre d'alternance, une question sur mon travail, ou simplement envie d'échanger — n'hésitez pas à me contacter.",
+              "Whether you have an apprenticeship offer, a question about my work, or just want to chat — feel free to reach out."
+            )}
           </motion.p>
 
-          {/* Main email */}
           <motion.a
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +94,7 @@ export function Contact() {
           <div className="bg-surface p-6 text-left">
             <Phone size={16} className="text-accent" />
             <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-              Téléphone
+              {t('Téléphone', 'Phone')}
             </div>
             <a
               href={`tel:${profile.contact.phone.replace(/\s/g, '')}`}
@@ -104,7 +106,7 @@ export function Contact() {
           <div className="bg-surface p-6 text-left">
             <MapPin size={16} className="text-accent" />
             <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-              Localisation
+              {t('Localisation', 'Location')}
             </div>
             <div className="mt-1 text-sm text-bright">{profile.location}</div>
           </div>

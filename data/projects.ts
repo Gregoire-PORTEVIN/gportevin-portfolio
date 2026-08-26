@@ -40,7 +40,7 @@ export type Project = {
 
 export const projects: Project[] = [
   // ============================================================
-  // FEATURED — Projet phare de la home
+  // FEATURED
   // ============================================================
   {
     slug: 'plugin-unreal-inrae',
@@ -75,6 +75,41 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/Gregoire-PORTEVIN/IntegrationIrritator',
     featured: true,
+  },
+
+  {
+    slug: 'astral-corruption',
+    title: 'Astral Corruption',
+    subtitle: "Jeu d'aventure-exploration 3D dans un temple alien envahi par la corruption",
+    year: '2026',
+    category: 'jeu',
+    context: 'Projet Fil Rouge — Master 1, Gaming Campus',
+    team: 'Équipe de 2',
+    stack: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara'],
+    cover: '/projects/Astral-Corruption/cover-Astral-Corruption.jpg',
+    description:
+      "Astral Corruption est un jeu d'aventure-exploration à la troisième personne dans lequel le joueur est piégé dans un temple alien envahi par une énergie corrompue organique. Armé d'une épée et d'un arc énergétique, il doit purifier les zones infectées, résoudre des énigmes environnementales et affronter des gardiens corrompus pour réactiver les 4 balises Astrales et trouver la sortie.",
+    highlights: [
+      "Système de corruption / purification : les zones infectées infligent des dégâts continus et changent d'état visuel (matériaux, VFX, audio) à la purification",
+      "Deux types d'énigmes : alignement de cibles à l'arc (séries chronométrées) et redirection de faisceau lumineux entre émetteurs et récepteurs",
+      "Système d'armes dual : épée au corps à corps et arc à distance, interchangeables à la volée",
+      "IA ennemie complète via Behaviour Tree + Blackboard : patrouille, détection multi-sens (vue, ouïe, dégâts), poursuite et retour en patrouille",
+      "Level design guidant naturellement le joueur de la zone tutoriel jusqu'au boss final",
+    ],
+    learnings: [
+      "Conception et implémentation d'un système de gameplay complexe (corruption/purification) en Blueprint",
+      "Développement d'une IA ennemie complète avec Behaviour Tree sous Unreal Engine 5",
+      "Gestion d'un projet de jeu complet en binôme : game design, programmation, level design",
+    ],
+    video: {
+      kind: 'youtube',
+      id: 'GFEwpQyBrl4'
+    },
+    gallery: [
+    ],
+    github: 'https://github.com/Gregoire-PORTEVIN/Astral-Corruption',
+    demo: 'https://gportevin.itch.io/astral-corruption-unreal-engine-5',
+    demoLabel: 'Jouer sur itch.io',
   },
 
   // ============================================================
@@ -137,40 +172,6 @@ export const projects: Project[] = [
   // ============================================================
   // PROJETS MOTEUR & TECH
   // ============================================================
-    {
-    slug: 'astral-corruption',
-    title: 'Astral Corruption',
-    subtitle: "Jeu d'aventure-exploration 3D dans un temple alien envahi par la corruption",
-    year: '2026',
-    category: 'jeu',
-    context: 'Projet Fil Rouge — Master 1, Gaming Campus',
-    team: 'Équipe de 2',
-    stack: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara'],
-    cover: '/projects/Astral-Corruption/cover-Astral-Corruption.jpg',
-    description:
-      "Astral Corruption est un jeu d'aventure-exploration à la troisième personne dans lequel le joueur est piégé dans un temple alien envahi par une énergie corrompue organique. Armé d'une épée et d'un arc énergétique, il doit purifier les zones infectées, résoudre des énigmes environnementales et affronter des gardiens corrompus pour réactiver les 4 balises Astrales et trouver la sortie.",
-    highlights: [
-      "Système de corruption / purification : les zones infectées infligent des dégâts continus et changent d'état visuel (matériaux, VFX, audio) à la purification",
-      "Deux types d'énigmes : alignement de cibles à l'arc (séries chronométrées) et redirection de faisceau lumineux entre émetteurs et récepteurs",
-      "Système d'armes dual : épée au corps à corps et arc à distance, interchangeables à la volée",
-      "IA ennemie complète via Behaviour Tree + Blackboard : patrouille, détection multi-sens (vue, ouïe, dégâts), poursuite et retour en patrouille",
-      "Level design guidant naturellement le joueur de la zone tutoriel jusqu'au boss final",
-    ],
-    learnings: [
-      "Conception et implémentation d'un système de gameplay complexe (corruption/purification) en Blueprint",
-      "Développement d'une IA ennemie complète avec Behaviour Tree sous Unreal Engine 5",
-      "Gestion d'un projet de jeu complet en binôme : game design, programmation, level design",
-    ],
-    video: {
-      kind: 'youtube',
-      id: 'GFEwpQyBrl4'
-    },
-    gallery: [
-    ],
-    github: 'https://github.com/Gregoire-PORTEVIN/Astral-Corruption',
-    demo: 'https://gportevin.itch.io/astral-corruption-unreal-engine-5',
-    demoLabel: 'Jouer sur itch.io',
-  },
   {
     slug: 'moteur-directx12',
     title: 'Moteur 3D & Jeu — DirectX 12',
