@@ -3,7 +3,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { use } from 'react';
-import { ArrowLeft, ArrowUpRight, Github, Play } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, FileText, Github, Play } from 'lucide-react';
 import { projects, getProjectBySlug } from '@/data/projects';
 import { getProjectEnBySlug } from '@/data/projects.en';
 import { VideoPlayer } from '@/components/VideoPlayer';
@@ -85,6 +85,18 @@ export default function ProjectDetailPage({
               >
                 <Play size={16} />
                 {project.demoLabel || 'Demo'}
+              </a>
+            )}
+            {project.gdd && (
+              <a
+                href={project.gdd}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-line bg-surface px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent"
+              >
+                <FileText size={16} />
+                {project.gddLabel || 'GDD'}
+                <ArrowUpRight size={14} />
               </a>
             )}
           </div>

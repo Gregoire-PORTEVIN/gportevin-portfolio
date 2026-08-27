@@ -36,6 +36,8 @@ export type Project = {
   gallery?: ProjectImage[];
   featured?: boolean;
   demoLabel?: string;
+  gdd?: string;
+  gddLabel?: string;
 };
 
 export const projects: Project[] = [
@@ -86,7 +88,7 @@ export const projects: Project[] = [
     context: 'Projet Fil Rouge — Master 1, Gaming Campus',
     team: 'Équipe de 2',
     stack: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara'],
-    cover: '',
+    cover: '/projects/Astral-Corruption/cover-Astral.jpg',
     description:
       "Astral Corruption est un jeu d'aventure-exploration à la troisième personne dans lequel le joueur est piégé dans un temple alien envahi par une énergie corrompue organique. Armé d'une épée et d'un arc énergétique, il doit purifier les zones infectées, résoudre des énigmes environnementales et affronter des gardiens corrompus pour réactiver les 4 balises Astrales et trouver la sortie.",
     highlights: [
@@ -106,10 +108,15 @@ export const projects: Project[] = [
       id: 'GFEwpQyBrl4'
     },
     gallery: [
+      { src: '/projects/Astral-Corruption/1-Astral.jpg', caption: '' },
+      { src: '/projects/Astral-Corruption/2-Astral.jpg', caption: '' },
+      { src: '/projects/Astral-Corruption/3-Astral.jpg', caption: '' },
     ],
     github: 'https://github.com/Gregoire-PORTEVIN/Astral-Corruption',
     demo: 'https://gportevin.itch.io/astral-corruption-unreal-engine-5',
     demoLabel: 'Jouer sur itch.io',
+    gdd: 'https://drive.google.com/file/d/1QomRSK5SvbXl-7lVGQLtOC94_e2G5MCC/view?usp=sharing',
+    gddLabel: 'Game Design Document',
   },
 
   // ============================================================
